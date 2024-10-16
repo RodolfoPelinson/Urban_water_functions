@@ -5,6 +5,8 @@ source("functions/fit_sd.R")
 source("functions/functions.R")
 source("functions/run_all_models.R")
 source("functions/sech function.R")
+source("functions/fit_neg_exponential.R")
+source("functions/example_neg_exp.R")
 
 
 source("Resultados/Água/Scripts/clorofila.R")
@@ -58,6 +60,9 @@ source("Resultados/Fármacos/Scripts/SSRI.R")
 source("Resultados/Fármacos/Scripts/Tricyclic.R")
 source("Resultados/Fármacos/Scripts/Trimipramine.R")
 source("Resultados/Fármacos/Scripts/Venlafaxine.R")
+
+source("Resultados/SARSCOV2/Scripts/sarscov2_n1.R")
+source("Resultados/SARSCOV2/Scripts/sarscov2_n2.R")
 
 
 library(xfun)

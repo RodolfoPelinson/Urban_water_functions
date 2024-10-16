@@ -1,4 +1,4 @@
-
+source("functions/My_coefplot_function.R")
 # Negative exponential models
 
 #C parameter
@@ -17,9 +17,9 @@ means_b$Chlorophyll_a <- fit_clorofila$coefs_mean$mod_exp_neg[2]
 
 
 #Phycocianin
-#means$Phycocianin <- fit_phycocianin$coefs_mean$mod_exp_neg[3]
-#lower_conf$Phycocianin <- fit_phycocianin$confint_mean$mod_exp_neg[3,1]
-#upper_conf$Phycocianin <- fit_phycocianin$confint_mean$mod_exp_neg[3,2]
+means$Phycocianin <- fit_phycocianin$coefs_mean$mod_exp_neg[3]
+lower_conf$Phycocianin <- fit_phycocianin$confint_mean$mod_exp_neg[3,1]
+upper_conf$Phycocianin <- fit_phycocianin$confint_mean$mod_exp_neg[3,2]
 
 
 #Temperatura
@@ -43,9 +43,9 @@ upper_conf$SPC <- fit_SPC$confint_mean$mod_exp_neg[3,2]
 means_b$SPC <- fit_SPC$coefs_mean$mod_exp_neg[2]
 
 #Condutividade
-#means$Conductivity <- fit_condutividade$coefs_mean$mod_exp_neg[3]
-#lower_conf$Conductivity <- fit_condutividade$confint_mean$mod_exp_neg[3,1]
-#upper_conf$Conductivity <- fit_condutividade$confint_mean$mod_exp_neg[3,2]
+means$Conductivity <- fit_condutividade$coefs_mean$mod_exp_neg[3]
+lower_conf$Conductivity <- fit_condutividade$confint_mean$mod_exp_neg[3,1]
+upper_conf$Conductivity <- fit_condutividade$confint_mean$mod_exp_neg[3,2]
 
 #pH
 means$pH <- fit_pH$coefs_mean$mod_exp_neg[3]
@@ -54,9 +54,9 @@ upper_conf$pH <- fit_pH$confint_mean$mod_exp_neg[3,2]
 means_b$pH <- fit_pH$coefs_mean$mod_exp_neg[2]
 
 #redox potential
-#means$Redox_potential <- fit_redox$coefs_mean$mod_exp_neg[3]
-#lower_conf$Redox_potential <- fit_redox$confint_mean$mod_exp_neg[3,1]
-#upper_conf$Redox_potential <- fit_redox$confint_mean$mod_exp_neg[3,2]
+means$Redox_potential <- fit_redox$coefs_mean$mod_exp_neg[3]
+lower_conf$Redox_potential <- fit_redox$confint_mean$mod_exp_neg[3,1]
+upper_conf$Redox_potential <- fit_redox$confint_mean$mod_exp_neg[3,2]
 
 #Turbidity
 means$Turbidity <- fit_turbidity$coefs_mean$mod_exp_neg[3]
@@ -119,7 +119,7 @@ names <- gsub("_"," ",names)
 
 
 png("Resultados/Água/Curvas/Negative_Exponential_c.png", width = 9, height = 9, units = "cm", pointsize = 9, res = 600)
-par(mar = c(4,8,1,1))
+par(mar = c(4,8,1,1), mfrow = c(1,1))
 My_coefplot(means, upper_conf, lower_conf, species_labels = names, xlab = "Negative Exponential: c", cex.axis = 1,y_spa = 0,)
 dev.off()
 
@@ -517,11 +517,11 @@ all_names <- c(names,NA, names_contaminants,NA, names_n_pharma,NA, names_sarscov
 
 png("Resultados/Negative_Exponential_c.png", width = 12, height = 12, units = "cm", pointsize = 9, res = 600)
 
-par(mar = c(4,10,1,1))
+par(mar = c(4,10,1,1), mfrow = c(1,1))
 My_coefplot(all_means, all_upper_conf, all_lower_conf, species_labels = all_names, xlab = "Negative Exponential: c", cex.axis = 1,y_spa = 0, xlim = c(-0.7, 0))
 abline(h = c(3, 10, 16), col = "grey50", lwd = 2)
-text(x = -0.7, y = 27, labels = "Water", adj = c(0,0.5))
-text(x = -0.7, y = 26, labels = "parameters", adj = c(0,0.5))
+text(x = -0.7, y = 30, labels = "Water", adj = c(0,0.5))
+text(x = -0.7, y = 29, labels = "parameters", adj = c(0,0.5))
 text(x = -0.7, y = 15, labels = "Contaminants", adj = c(0,0.5))
 text(x = -0.7, y = 9, labels = "Pharmaceuticals", adj = c(0,0.5))
 text(x = -0.7, y = 2, labels = "SARS-Cov-2", adj = c(0,0.5))
