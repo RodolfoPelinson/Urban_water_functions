@@ -200,3 +200,16 @@ quantile(water_quality_agua_mean$turbidity_.NTU., probs = c(0.95))*3
 map_biomas_dados <- read.csv("data/consolidacao_dados_socioeconomicos_20240624.csv")
 
 map_biomas_dados <- map_biomas_dados[match(water_quality_agua_mean$Group.1, map_biomas_dados$ID_geral),]
+
+
+###################################
+
+usos_da_terra <- read.csv("data/usos_da_terra_700_bacias_2019.csv")
+
+usos_da_terra <- usos_da_terra[match(water_quality_agua_mean$Group.1, usos_da_terra$bacia_id_nova),]
+
+outras <- water_quality_agua_mean$Group.1[ is.na(match(usos_da_terra$bacia_id_nova, water_quality_agua_mean$Group.1)) ]
+
+usos_da_terra$bacia_id_nova[which(is.na(usos_da_terra$bacia_id_nova))] <- outras
+  
+
