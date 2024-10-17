@@ -1,11 +1,8 @@
-do <- water_quality_agua_mean$DO_.mg.L.
-urb <- water_quality_agua_mean$X.urb
 D_sanitation <- map_biomas_dados$habitantes_sem_saneamento/100
 imperm <- map_biomas_dados$ArImp_2021_ha_Vect
 library(vegan)
 sanitation <- c(decostand(D_sanitation, method = "stand"))
 imperm <- c(decostand(imperm, method = "stand"))
-urb_st <- c(decostand(urb, method = "stand"))
 
 Ys <- list(
   do = do,
